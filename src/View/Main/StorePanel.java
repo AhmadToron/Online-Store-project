@@ -12,7 +12,6 @@ public class StorePanel extends JPanel {
     private JList listProducts;
     private DefaultListModel<String> defaultListModel;
     private JScrollPane scrollPane;
-    private JLabel lblWelcome;
     private JTextField txtSearch;
     private JButton btnSearch;
     private JButton btnUpdate;
@@ -30,9 +29,6 @@ public class StorePanel extends JPanel {
         txtSearch.setPreferredSize(new Dimension(400, 25));
         txtSearch.setMinimumSize(new Dimension(400, 25));
         txtSearch.setToolTipText("Search for products by code, name or supplier...");
-
-        lblWelcome = new JLabel("Welcome, Log in to start shopping!");
-        lblWelcome.setFont(new Font("Helvetica", Font.BOLD, 15));
 
         defaultListModel = new DefaultListModel<>();
 
@@ -90,7 +86,6 @@ public class StorePanel extends JPanel {
         gbc.gridy = 0;
         gbc.gridx = 0;
         gbc.gridwidth = 2;
-        add(lblWelcome, gbc);
 
         gbc.insets = new Insets(0, 0, 0, 0);
 
