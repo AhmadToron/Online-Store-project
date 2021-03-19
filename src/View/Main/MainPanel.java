@@ -11,7 +11,7 @@ import java.util.ArrayList;
 
 public class MainPanel extends JPanel {
 
-    private Controller controller;
+    private static Controller controller;
     private LogInPanel pnlLogIn;
     private StorePanel pnlStore;
     private AdminMainPanel pnlAdminMain;
@@ -104,13 +104,49 @@ public class MainPanel extends JPanel {
         controller.openCreateAccountWindow();
     }
 
-    public boolean isUserNormal(String userNameLogin, String passwordLogin) {
-        controller.isUserNormal(userNameLogin, passwordLogin);
-        return controller.isUserNormal(userNameLogin, passwordLogin);
+    public boolean isUserCostumer(String userNameLogin, String passwordLogin) {
+        controller.isUserCostumer(userNameLogin, passwordLogin);
+        return controller.isUserCostumer(userNameLogin, passwordLogin);
     }
 
     public boolean isUserAdmin(String userNameLogin, String passwordLogin) {
         controller.isUserAdmin(userNameLogin, passwordLogin);
         return controller.isUserAdmin(userNameLogin, passwordLogin);
+    }
+
+    public static void openAddSupplierFrame() {
+        controller.openAddSupplierFrame();
+    }
+    public static void openAddProductFrame() {
+        controller.openAddProductFrame();
+    }
+    public static void openAddDiscountFrame() {
+        controller.openAddDiscountFrame();
+    }
+    public static void openDeleteProductFrame() {
+        controller.openDeleteProductFrame();
+    }
+    public void openHandleProductFrame() {
+        controller.openHandleProductFrame();
+    }
+    public void openHandleOrdersFrame() {
+        controller.openHandleOrdersFrame();
+    }
+    public void openViewUsedDiscountsFrame() {
+        controller.openViewUsedDiscountsFrame();
+    }
+    public void updateProductList() {
+        pnlAdminMain.updateProductList();
+    }
+    public void openShoppingcart() {
+        controller.openShoppingCart();
+    }
+
+    public boolean checkQuantity(int nbrOfItems, int productID) {
+        return controller.checkQuantity(nbrOfItems, productID);
+    }
+
+    public void getOrderedProducts(int productID, int nbrOfItems) {
+        controller.getOrderedProduct(productID, nbrOfItems);
     }
 }

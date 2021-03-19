@@ -50,4 +50,20 @@ public class UserMainPanel extends JPanel {
     public ArrayList<String> getProductsForCustomers() {
         return mainPanel.getProductsForCustomers();
     }
+
+    public void openShoppingCart() {
+        mainPanel.openShoppingcart();
+    }
+
+    public boolean checkQuantity(int nbrOfItems, int productID) {
+        return mainPanel.checkQuantity(nbrOfItems, productID);
+    }
+
+    public void updateShoppingCartBtn(int productsAdded) {
+        optionsPanel.updateShoppingCartBtn(productsAdded);
+    }
+
+    public void getOrderedProducts(int productID, int nbrOfItems) {
+        mainPanel.getOrderedProducts(productID,nbrOfItems);
+    }
 }

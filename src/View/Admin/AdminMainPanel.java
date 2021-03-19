@@ -4,9 +4,10 @@ import View.Main.MainPanel;
 
 import javax.swing.*;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class AdminMainPanel extends JPanel {
-    private MainPanel mainPanel;
+    private final MainPanel mainPanel;
     private OptionsPanel optionsPanel;
     private AdminStorePanel adminStorePanel;
 
@@ -36,5 +37,35 @@ public class AdminMainPanel extends JPanel {
         gbc.gridy = 1;
         gbc.gridx = 0;
         add(adminStorePanel, gbc);
+    }
+
+    public void openAddSupplierFrame() {
+        MainPanel.openAddSupplierFrame();
+    }
+    public void openAddProductFrame() {
+        MainPanel.openAddProductFrame();
+    }
+    public void openAddDiscountFrame() {
+        MainPanel.openAddDiscountFrame();
+    }
+    public void openDeleteProductFrame() {
+        MainPanel.openDeleteProductFrame();
+    }
+    public void openHandleProductFrame() {
+        mainPanel.openHandleProductFrame();
+    }
+    public void openHandleOrdersFrame() {
+        mainPanel.openHandleOrdersFrame();
+    }
+    public void openViewUsedDiscountsFrame() {
+        mainPanel.openViewUsedDiscountsFrame();
+    }
+
+    public void updateProductList() {
+        adminStorePanel.updateProductList();
+    }
+
+    public ArrayList<String> getAllProducts(){
+        return mainPanel.getAllProducts();
     }
 }

@@ -1,8 +1,6 @@
 package View.Main;
 
 
-import View.User.UserMainPanel;
-
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
@@ -102,9 +100,9 @@ public class LogInPanel extends JPanel {
             char[] charPass = txtPassword.getPassword();
             String passwordLogin = String.valueOf(charPass);
 
-            if(!mainPanel.isUserNormal(userNameLogin, passwordLogin) && mainPanel.isUserAdmin(userNameLogin, passwordLogin)) {
+            if(!mainPanel.isUserCostumer(userNameLogin, passwordLogin) && mainPanel.isUserAdmin(userNameLogin, passwordLogin)) {
                 mainPanel.updateAdminView();
-            } else if(mainPanel.isUserNormal(userNameLogin, passwordLogin) && !mainPanel.isUserAdmin(userNameLogin, passwordLogin)){
+            } else if(mainPanel.isUserCostumer(userNameLogin, passwordLogin) && !mainPanel.isUserAdmin(userNameLogin, passwordLogin)){
                 mainPanel.updateUserView();
             } else {
                 JOptionPane.showMessageDialog(null, "Wrong Username or password!");

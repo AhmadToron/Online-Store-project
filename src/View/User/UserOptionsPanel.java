@@ -50,7 +50,15 @@ public class UserOptionsPanel extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            userMainPanel.openShoppingCart();
         }
+    }
+
+    public void updateShoppingCartBtn(int productsAdded) {
+        btnShoppingCart.setText("Shopping Cart (" + productsAdded + ")");
+    }
+
+    public void getOrderedProducts(int productID, int nbrOfItems) {
+        userMainPanel.getOrderedProducts(productID, nbrOfItems);
     }
 }

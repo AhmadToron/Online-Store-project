@@ -67,25 +67,25 @@ public class OptionsPanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             if(cmbBoxOptions.getSelectedIndex() == 0){
-//                adminMainPanel.openAddSupplierFrame();
+                adminMainPanel.openAddSupplierFrame();
             }
             if(cmbBoxOptions.getSelectedIndex() == 1){
-//                adminMainPanel.openAddDiscountFrame();
+                adminMainPanel.openAddDiscountFrame();
             }
             if(cmbBoxOptions.getSelectedIndex() == 2){
-//                adminMainPanel.openAddProductFrame();
+                adminMainPanel.openAddProductFrame();
             }
             if(cmbBoxOptions.getSelectedIndex() == 3){
-//                adminMainPanel.openDeleteProductFrame();
+                adminMainPanel.openDeleteProductFrame();
             }
             if(cmbBoxOptions.getSelectedIndex() == 4){
-//                adminMainPanel.openHandleProductFrame();
+                adminMainPanel.openHandleProductFrame();
             }
             if(cmbBoxOptions.getSelectedIndex() == 5){
-//                adminMainPanel.openHandleOrdersFrame();
+                adminMainPanel.openHandleOrdersFrame();
             }
             if(cmbBoxOptions.getSelectedIndex() == 6){
-//                adminMainPanel.openViewUsedDiscountsFrame();
+                adminMainPanel.openViewUsedDiscountsFrame();
             }
         }
     }

@@ -10,7 +10,6 @@ public class AdminStorePanel extends JPanel {
     private DefaultListModel<String> defaultListModel;
     private JScrollPane scrollPane;
 
-    private JLabel lblWelcome;
     private JTextField txtSearch;
     private JButton btnSearch;
     private JButton btnUpdate;
@@ -29,9 +28,6 @@ public class AdminStorePanel extends JPanel {
         txtSearch.setPreferredSize(new Dimension(400, 25));
         txtSearch.setMinimumSize(new Dimension(400, 25));
         txtSearch.setToolTipText("Search for products by code, name or supplier...");
-
-        lblWelcome = new JLabel("Welcome, ");
-        lblWelcome.setFont(new Font("Helvetica", Font.BOLD, 24));
 
         defaultListModel = new DefaultListModel<>();
 
@@ -72,7 +68,6 @@ public class AdminStorePanel extends JPanel {
         gbc.gridy = 0;
         gbc.gridx = 0;
         gbc.gridwidth = 2;
-        add(lblWelcome, gbc);
 
         gbc.insets = new Insets(0, 0, 0, 0);
 
@@ -96,5 +91,12 @@ public class AdminStorePanel extends JPanel {
         gbc.gridx = 0;
         gbc.gridwidth = 2;
         add(btnUpdate, gbc);
+    }
+
+    public void updateProductList(){
+        defaultListModel.removeAllElements();
+        for(int i = 0; i < adminMainPanel.getAllProducts().size(); i++){
+            defaultListModel.addElement(adminMainPanel.getAllProducts().get(i));
+        }
     }
 }

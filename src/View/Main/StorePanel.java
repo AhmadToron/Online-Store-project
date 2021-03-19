@@ -58,7 +58,6 @@ public class StorePanel extends JPanel {
 
     }
 
-
     private void registerListeners(){
         btnSearch.addActionListener(new BtnSearchActionListener());
         btnUpdate.addActionListener(new BtnUpdateActionListener());
@@ -122,6 +121,12 @@ public class StorePanel extends JPanel {
         }
     }
 
+    public void updateProductList(){
+        defaultListModel.removeAllElements();
+        for(int i = 0; i < mainPanel.getProductsForCustomers().size(); i++){
+            defaultListModel.addElement(mainPanel.getProductsForCustomers().get(i));
+        }
+    }
 
     private class BtnSearchActionListener implements ActionListener {
 
@@ -144,7 +149,7 @@ public class StorePanel extends JPanel {
                 updateSearchedProducts(searchedCode, searchedSupplier, searchedProduct);
             } else {
                 mainPanel.getAllProducts();
-//                updateProductList();
+                updateProductList();
             }
         }
     }
@@ -154,7 +159,7 @@ public class StorePanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             mainPanel.getAllProducts();
-//            updateProductList();
+            updateProductList();
         }
     }
 }

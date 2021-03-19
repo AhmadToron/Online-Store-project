@@ -13,7 +13,6 @@ public class UserStorePanel extends JPanel {
 
     int productsAdded;
 
-    private JLabel lblWelcome;
     private JTextField txtSearch;
 
     private JButton btnSearch;
@@ -26,7 +25,7 @@ public class UserStorePanel extends JPanel {
         productsAdded = 0;
 
         initializeComponents();
-//        updateProductList();
+        updateProductList();
         initializeGUI();
         registerListeners();
     }
@@ -39,8 +38,6 @@ public class UserStorePanel extends JPanel {
         txtSearch.setMinimumSize(new Dimension(400, 25));
         txtSearch.setToolTipText("Search for products by code, name or supplier...");
 
-        lblWelcome = new JLabel("Welcome, ");
-        lblWelcome.setFont(new Font("Helvetica", Font.BOLD, 24));
 
         defaultListModel = new DefaultListModel<>();
 
@@ -89,7 +86,6 @@ public class UserStorePanel extends JPanel {
         gbc.gridy = 0;
         gbc.gridx = 0;
         gbc.gridwidth = 2;
-        add(lblWelcome, gbc);
 
         gbc.insets = new Insets(0, 0, 0, 0);
 
@@ -119,7 +115,7 @@ public class UserStorePanel extends JPanel {
         add(btnAddProduct, gbc);
     }
 
-/*
+
     public void updateProductList(){
         defaultListModel.removeAllElements();
         for(int i = 0; i < userMainPanel.getProductsForCustomers().size(); i++){
@@ -128,7 +124,7 @@ public class UserStorePanel extends JPanel {
     }
 
 
- */
+
     public void updateSearchedProducts(String searchedCode, String searchedSupplier, String searchedProduct){
         defaultListModel.removeAllElements();
         for(int i = 0; i < userMainPanel.getSearchedProducts(searchedCode, searchedSupplier, searchedProduct).size(); i++){
@@ -177,7 +173,7 @@ public class UserStorePanel extends JPanel {
                 updateSearchedProducts(searchedCode, searchedSupplier, searchedProduct);
             } else {
                 userMainPanel.getAllProducts();
-//                updateProductList();
+                updateProductList();
             }
         }
     }
@@ -187,7 +183,7 @@ public class UserStorePanel extends JPanel {
         @Override
         public void actionPerformed(ActionEvent e) {
             userMainPanel.getAllProducts();
-//            updateProductList();
+            updateProductList();
         }
     }
 
@@ -208,6 +204,22 @@ public class UserStorePanel extends JPanel {
 
         @Override
         public void actionPerformed(ActionEvent e) {
+            try {
+                if(getIdFromString() > 0){
+                    int nbrOfItems = Integer.parseInt(JOptionPane.showInputDialog("How many items?"));
+                    int productID = getIdFromString();
+                    if(userMainPanel.checkQuantity(nbrOfItems, productID)){
+                        JOptionPane.showMessageDialog(null, "Product added!");
+                        productsAdded++;
+                        userMainPanel.updateShoppingCartBtn(productsAdded);
+                        userMainPanel.getOrderedProducts(productID, nbrOfItems);
+                        updateProductList();
+                    }
+                }
+            } catch (NumberFormatException n) {
+                n.printStackTrace();
+                JOptionPane.showMessageDialog(null,"Enter a real number!");
+            }
 
         }
     }

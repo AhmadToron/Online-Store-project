@@ -1,14 +1,19 @@
 package Model;
 
+import Controller.DBController;
+
 public class Discount {
     private int discountCode;
     private double discountPercentage;
     private String discountReason;
+    private DBController dbController;
 
-    public Discount(int discountCode, double discountPercentage, String discountReason) {
+
+    public Discount(int discountCode, double discountPercentage, String discountReason, DBController dbController) {
         this.discountCode = discountCode;
         this.discountPercentage = discountPercentage;
         this.discountReason = discountReason;
+        this.dbController = dbController;
     }
 
     public int getDiscountCode() {
